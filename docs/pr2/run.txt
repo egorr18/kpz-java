@@ -1,0 +1,28 @@
+$ java -cp target/classes app.Main
+=== Дослід 1. Рівні доступу ===
+З класу model.SamePackageAccess (той самий пакет):
+  за замовчуванням (level)   = 5
+  protected (score)          = 120
+  public (clan)              = без клану
+  метод пакета packageInfo() = метод пакета model
+З app.Main (інший пакет):
+  public (clan) = без клану
+  private/за замовчуванням/protected — помилки компіляції, див. experiments/
+
+=== Дослід 2. Три види конструкторів ===
+new Player()                 -> Player#2{nickname='Новачок', level=1, score=0, clan='без клану'}
+new Player("Viper", 12, 3400) -> Player#3{nickname='Viper', level=12, score=3400, clan='без клану'}
+new Player("Ghost")          -> Player#4{nickname='Ghost', level=1, score=0, clan='без клану'}   // this(nickname, 1, 0)
+
+=== Дослід 3. this у конструкторі ===
+з this:  Player#5{nickname='Raven', level=7, score=900, clan='без клану'}
+без this: PlayerWithoutThis{nickname=null, level=0, score=0}
+
+=== Дослід 4. static і поле екземпляра ===
+Player.getCreatedCount() = 8   // static: один лічильник на клас
+a.getNickname() = A, b.getNickname() = B, c.getNickname() = C   // поле екземпляра: своє в кожного
+id: a=6, b=7, c=8
+
+=== Дослід 5. final ===
+addPoints(100) з final bonus = level * 10 -> Player#3{nickname='Viper', level=12, score=3620, clan='без клану'}
+id об'єкта full лишається 3; перезапис id / bonus — помилка компіляції, див. experiments/

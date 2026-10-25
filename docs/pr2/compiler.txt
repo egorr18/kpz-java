@@ -1,0 +1,31 @@
+$ ./run-experiments.sh
+=== javac experiments/model/AccessFromSamePackage.java ===
+experiments/model/AccessFromSamePackage.java:6: error: nickname has private access in Player
+        String a = p.nickname;      // private
+                    ^
+experiments/model/AccessFromSamePackage.java:10: error: secret() has private access in Player
+        String e = p.secret();      // private-метод
+                    ^
+2 errors
+
+=== javac experiments/app/AccessFromOtherPackage.java ===
+experiments/app/AccessFromOtherPackage.java:8: error: nickname has private access in Player
+        String a = p.nickname;      // private
+                    ^
+experiments/app/AccessFromOtherPackage.java:9: error: level is not public in Player; cannot be accessed from outside package
+        int b = p.level;            // за замовчуванням
+                 ^
+experiments/app/AccessFromOtherPackage.java:10: error: score has protected access in Player
+        int c = p.score;            // protected (app.AccessFromOtherPackage не є підкласом Player)
+                 ^
+3 errors
+
+=== javac experiments/model/FinalReassign.java ===
+experiments/model/FinalReassign.java:8: error: cannot assign a value to final variable id
+        id = 6;                         // final-поле
+        ^
+experiments/model/FinalReassign.java:10: error: cannot assign a value to final variable bonus
+        bonus = 20;                     // final-змінна методу
+        ^
+2 errors
+
