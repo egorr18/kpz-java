@@ -25,7 +25,9 @@ class EmployeeContractTest {
                 new Developer("Р", new BigDecimal("50400"), 10),
                 new Developer("Р0", BigDecimal.ZERO, 0),
                 new Intern("С", new BigDecimal("30000"), "ментор"),
-                new Intern("С0", BigDecimal.ZERO, null));
+                new Intern("С0", BigDecimal.ZERO, null),
+                new Contractor("П", 40, new BigDecimal("650")),
+                new Contractor("П0", 0, BigDecimal.ZERO));
     }
 
     @ParameterizedTest

@@ -3,6 +3,7 @@ package app;
 import java.io.PrintStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
+import staff.Contractor;
 import staff.Developer;
 import staff.Employee;
 import staff.Intern;
@@ -21,5 +22,13 @@ public class Main {
                 new Intern("Максим Ткач", new BigDecimal("30000"), "Андрій Шевчук")
         };
         Payroll.print("Відомість за жовтень", staff, out);
+
+        // Новий різновид: масив розширено, Payroll і цикл обробки не змінювались
+        Employee[] withContractor = {
+                staff[0], staff[1], staff[2], staff[3],
+                new Contractor("Тарас Мельник", 40, new BigDecimal("650"))
+        };
+        out.println();
+        Payroll.print("Відомість за жовтень (з підрядником)", withContractor, out);
     }
 }
