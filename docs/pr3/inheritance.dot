@@ -1,0 +1,11 @@
+digraph G {
+  rankdir=BT; fontname="Helvetica"; node [shape=record, fontname="Helvetica", fontsize=12, style=filled, fillcolor="#F3F6FB"];
+  edge [fontname="Helvetica", fontsize=10];
+  Transport [label="{Transport|+ label: String = \"базове поле\"\l# model: String\l# maxSpeed: int\l|+ Transport(model, maxSpeed)\l+ describe(): String\l+ kind(): String\l}"];
+  Car [label="{Car|+ label: String = \"поле Car\"\l- doors: int\l|+ Car(model, maxSpeed, doors)\l+ describe() «@Override»\l+ kind() «@Override»\l}"];
+  Motorcycle [label="{Motorcycle|- sidecar: boolean\l|+ Motorcycle(model, maxSpeed, sidecar)\l+ describe() «@Override»\l}"];
+  Car -> Transport [arrowhead=empty, label=" extends"];
+  Motorcycle -> Transport [arrowhead=empty, label=" extends"];
+  order [shape=note, fillcolor="#FFF8E1", label="Порядок створення new Car(...):\l1. виклик Car(...) → першим рядком super(model, maxSpeed)\l2. Object() → Transport(...): ініціалізація label, model, maxSpeed, вивід [Transport]\l3. повернення в Car(...): ініціалізація label (Car), doors, вивід [Car]\l"];
+  order -> Car [style=dashed, arrowhead=none];
+}

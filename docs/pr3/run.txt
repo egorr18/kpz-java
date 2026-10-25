@@ -1,0 +1,27 @@
+$ java -cp target/classes app.Main
+=== Дослід 1. @Override і super ===
+  -> [Transport] конструктор: model=Богдан А092, maxSpeed=90
+  -> [Transport] конструктор: model=Tesla Model 3, maxSpeed=225
+  -> [Car] конструктор: doors=4
+Transport.describe(): Транспорт Богдан А092, до 90 км/год
+Car.describe():       Транспорт Tesla Model 3, до 225 км/год; автомобіль, дверей: 4
+
+=== Дослід 2. Порядок конструкторів ===
+Transport b = new Car("Skoda Octavia", 230, 5):
+  -> [Transport] конструктор: model=Skoda Octavia, maxSpeed=230
+  -> [Car] конструктор: doors=5
+Transport m = new Motorcycle("Yamaha MT-07", 210, false):
+  -> [Transport] конструктор: model=Yamaha MT-07, maxSpeed=210
+  -> [Motorcycle] конструктор: sidecar=false
+b.describe() -> Транспорт Skoda Octavia, до 230 км/год; автомобіль, дверей: 5
+m.describe() -> Транспорт Yamaha MT-07, до 210 км/год; мотоцикл
+Car c = new Transport(...) — помилка компіляції, див. experiments/
+
+=== Дослід 3. Поле — за типом посилання, метод — за типом об'єкта ===
+  -> [Transport] конструктор: model=Renault Clio, maxSpeed=180
+  -> [Car] конструктор: doors=5
+asTransport.label   -> базове поле Transport
+asCar.label         -> поле Car
+asTransport.kind()  -> метод Car.kind()
+asCar.kind()        -> метод Car.kind()
+((Transport) asCar).label -> базове поле Transport
