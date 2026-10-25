@@ -1,0 +1,19 @@
+$ ./run-experiments.sh
+=== javac experiments/app/BreakFromOutside.java ===
+experiments/app/BreakFromOutside.java:9: error: attachTo(Playlist) is not public in Track; cannot be accessed from outside package
+        track.attachTo(playlist);       // службова операція узгодження (package-private)
+             ^
+experiments/app/BreakFromOutside.java:10: error: detach() is not public in Track; cannot be accessed from outside package
+        track.detach();
+             ^
+experiments/app/BreakFromOutside.java:11: error: tracks has private access in Playlist
+        playlist.tracks.clear();        // внутрішній список (private)
+                ^
+experiments/app/BreakFromOutside.java:12: error: number has private access in Track
+        track.number = 999;             // номер (private final)
+             ^
+experiments/app/BreakFromOutside.java:13: error: title has private access in Track
+        track.title = "Інша назва";     // незмінна частина даних
+             ^
+5 errors
+
