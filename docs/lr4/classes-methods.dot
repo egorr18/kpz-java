@@ -1,0 +1,12 @@
+digraph G {
+  rankdir=BT; nodesep=0.3; ranksep=0.55; fontname="Helvetica";
+  node [shape=record, fontname="Helvetica", fontsize=15, style=filled, fillcolor="#F3F6FB"];
+  edge [fontname="Helvetica", fontsize=12];
+  DM [label="{«interface»\nDeliveryMethod|+ name()\l+ estimatedDays(Order)\l+ deliver(Order)\l+ canDeliver(Order) «default»\l}"];
+  TR [label="{«interface»\nTrackable|+ trackingNumber(Order)\l+ trackingStatus(String)\l}", fillcolor="#FCE4EC"];
+  ADM [label="{«abstract»\nAbstractDeliveryMethod|- name\l|+ deliver(Order) «final»\l+ canDeliver(Order)\l# requiresAddress()\l# handOver(Order) «abstract»\l# makeTrackingNumber(...)\l}"];
+  Courier [label="CourierDelivery"]; Post [label="PostDelivery"]; Pickup [label="PickupDelivery\n(без Trackable)"]; Locker [label="ParcelLockerDelivery\n(додано пізніше)", fillcolor="#E3F2FD"];
+  ADM -> DM [arrowhead=empty, style=dashed, label=" implements"];
+  Courier -> ADM [arrowhead=empty]; Post -> ADM [arrowhead=empty]; Pickup -> ADM [arrowhead=empty]; Locker -> ADM [arrowhead=empty];
+  Courier -> TR [arrowhead=empty, style=dashed]; Post -> TR [arrowhead=empty, style=dashed]; Locker -> TR [arrowhead=empty, style=dashed];
+}
