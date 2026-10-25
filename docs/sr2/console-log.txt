@@ -1,0 +1,12 @@
+2026-10-25T22:29:46.287 INFO --- [demo] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/cameradb'
+2026-10-25T22:29:47.083 INFO --- [demo] [           main] com.example.demo.DemoApplication         : Started DemoApplication in 1.504 seconds (process running for 1.691)
+2026-10-25T22:29:47.525 INFO --- [demo] [nio-8080-exec-1] com.example.demo.service.CameraService   : Importing cameras from external API
+2026-10-25T22:29:47.880 INFO --- [demo] [nio-8080-exec-1] com.example.demo.service.CameraService   : Imported 4 cameras, rows in table: 4
+2026-10-25T22:29:47.936 INFO --- [demo] [nio-8080-exec-6] com.example.demo.service.CameraService   : Camera 1 deleted
+2026-10-25T22:29:47.957 INFO --- [demo] [io-8080-exec-10] com.example.demo.service.CameraService   : Importing cameras from external API
+2026-10-25T22:29:48.019 INFO --- [demo] [io-8080-exec-10] com.example.demo.service.CameraService   : Imported 4 cameras, rows in table: 4
+2026-10-25T22:30:14.695 INFO --- [demo] [nio-8080-exec-4] com.example.demo.service.CameraService   : Importing cameras from external API
+2026-10-25T22:30:14.816 INFO --- [demo] [nio-8080-exec-4] com.example.demo.service.CameraService   : Imported 4 cameras, rows in table: 4
+2026-10-25T22:30:48.542 INFO --- [demo] [nio-8080-exec-6] com.example.demo.service.CameraService   : Camera 1 deleted
+2026-10-25T22:31:06.820 INFO --- [demo] [io-8080-exec-10] com.example.demo.service.CameraService   : Importing cameras from external API
+2026-10-25T22:31:06.944 INFO --- [demo] [io-8080-exec-10] com.example.demo.service.CameraService   : Imported 4 cameras, rows in table: 4

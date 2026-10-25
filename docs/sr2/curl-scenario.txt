@@ -1,0 +1,19 @@
+$ curl -X POST .../import
+[{"id":1,"name":"Main Entrance","deviceType":"IP_CAMERA","status":"ONLINE","room":"Main Entrance","floor":1},{"id":2,"name":"Parking Camera","deviceType":"IP_CAMERA","status":"ONLINE","room":"Parking","floor":0},{"id":3,"name":"Warehouse Camera","deviceType":"IP_CAMERA","status":"OFFLINE","room":"Warehouse","floor":2},{"id":4,"name":"Office Camera","deviceType":"IP_CAMERA","status":"ONLINE","room":"Office 204","floor":2}]
+HTTP 200
+$ curl .../saved
+[{"id":1,"name":"Main Entrance","deviceType":"IP_CAMERA","status":"ONLINE","room":"Main Entrance","floor":1},{"id":2,"name":"Parking Camera","deviceType":"IP_CAMERA","status":"ONLINE","room":"Parking","floor":0},{"id":3,"name":"Warehouse Camera","deviceType":"IP_CAMERA","status":"OFFLINE","room":"Warehouse","floor":2},{"id":4,"name":"Office Camera","deviceType":"IP_CAMERA","status":"ONLINE","room":"Office 204","floor":2}]
+HTTP 200
+$ curl .../saved/1
+{"id":1,"name":"Main Entrance","deviceType":"IP_CAMERA","status":"ONLINE","room":"Main Entrance","floor":1}
+HTTP 200
+$ curl -X DELETE .../saved/1
+HTTP 204
+$ curl .../saved/1
+{"timestamp":"2026-10-25T20:29:47.948+00:00","status":404,"error":"Not Found","path":"/api/v1/camera/saved/1"}
+HTTP 404
+$ curl -X POST .../import   (повторно)
+HTTP 200
+$ curl .../saved   (після повторного імпорту)
+[{"id":1,"name":"Main Entrance","deviceType":"IP_CAMERA","status":"ONLINE","room":"Main Entrance","floor":1},{"id":2,"name":"Parking Camera","deviceType":"IP_CAMERA","status":"ONLINE","room":"Parking","floor":0},{"id":3,"name":"Warehouse Camera","deviceType":"IP_CAMERA","status":"OFFLINE","room":"Warehouse","floor":2},{"id":4,"name":"Office Camera","deviceType":"IP_CAMERA","status":"ONLINE","room":"Office 204","floor":2}]
+HTTP 200
