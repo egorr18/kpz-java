@@ -1,0 +1,38 @@
+$ ./run-experiments.sh
+=== javac experiments/app/NewAbstract.java ===
+experiments/app/NewAbstract.java:8: error: Device is abstract; cannot be instantiated
+        return new Device("Невідомий пристрій");
+               ^
+1 error
+
+=== javac experiments/devices/LampWithoutStatus.java ===
+experiments/devices/LampWithoutStatus.java:4: error: LampWithoutStatus is not abstract and does not override abstract method status() in Device
+public class LampWithoutStatus extends Device {
+       ^
+1 error
+
+=== javac experiments/app/InterfaceReferences.java ===
+experiments/app/InterfaceReferences.java:13: error: cannot find symbol
+        s.setLevel(50);         // setLevel є лише в Adjustable
+         ^
+  symbol:   method setLevel(int)
+  location: variable s of type Switchable
+experiments/app/InterfaceReferences.java:14: error: cannot find symbol
+        a.turnOn();             // turnOn є лише в Switchable
+         ^
+  symbol:   method turnOn()
+  location: variable a of type Adjustable
+experiments/app/InterfaceReferences.java:15: error: cannot find symbol
+        s.status();             // status() оголошено в Device, а не в Switchable
+         ^
+  symbol:   method status()
+  location: variable s of type Switchable
+3 errors
+
+=== javac experiments/devices/DefaultConflict.java ===
+experiments/devices/DefaultConflict.java:4: error: types Switchable and Adjustable are incompatible;
+public class DefaultConflict implements Switchable, Adjustable {
+       ^
+  class DefaultConflict inherits unrelated defaults for describe() from types Switchable and Adjustable
+1 error
+
