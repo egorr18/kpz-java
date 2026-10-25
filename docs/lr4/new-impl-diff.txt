@@ -1,0 +1,10 @@
+$ git show --stat HEAD  (додавання ParcelLockerDelivery)
+685b298 ЛР4: нова реалізація ParcelLockerDelivery — DeliveryService не змінено
+
+ docs/lr4/run.txt                                   | 36 ++++++++++++++++++++
+ lr4-delivery/src/main/java/app/Main.java           |  5 +++
+ .../java/delivery/method/ParcelLockerDelivery.java | 39 ++++++++++++++++++++++
+ 3 files changed, 80 insertions(+)
+
+$ git diff lr4-base HEAD -- lr4-delivery/src/main/java/delivery/service/DeliveryService.java | wc -l
+0

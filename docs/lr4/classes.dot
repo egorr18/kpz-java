@@ -1,0 +1,23 @@
+digraph G {
+  rankdir=BT; nodesep=0.35; ranksep=0.6; fontname="Helvetica";
+  node [shape=record, fontname="Helvetica", fontsize=11, style=filled, fillcolor="#F3F6FB"];
+  edge [fontname="Helvetica", fontsize=9];
+  Main [label="{Main|точка збирання: створює\lреалізації і передає в сервіс\l}", fillcolor="#FFF8E1"];
+  Service [label="{DeliveryService|- method: DeliveryMethod\l- calculator: CostCalculator\l|+ DeliveryService(method, calculator)\l+ process(Order): Receipt\l}", fillcolor="#E8F5E9"];
+  DM [label="{«interface»\nDeliveryMethod|+ name()\l+ estimatedDays(Order)\l+ deliver(Order)\l+ canDeliver(Order) «default»\l}"];
+  TR [label="{«interface»\nTrackable|+ trackingNumber(Order)\l+ trackingStatus(String)\l}", fillcolor="#FCE4EC"];
+  ADM [label="{«abstract»\nAbstractDeliveryMethod|- name\l|+ deliver(Order) «final, шаблон»\l+ canDeliver(Order)\l# requiresAddress()\l# handOver(Order) «abstract»\l# makeTrackingNumber(...)\l}"];
+  Courier [label="CourierDelivery"]; Post [label="PostDelivery"]; Pickup [label="PickupDelivery"]; Locker [label="ParcelLockerDelivery\n(додано пізніше)", fillcolor="#E3F2FD"];
+  CC [label="{«interface»\nCostCalculator|+ description()\l+ cost(Order): BigDecimal\l}"];
+  Flat [label="FlatRateCalculator"]; WD [label="WeightDistanceCalculator"]; Free [label="FreeAboveThresholdCalculator\n(обгортає інший CostCalculator)"];
+  Order [label="{«record»\nOrder|id, city, address,\lweightKg, distanceKm, value\l}"];
+  ADM -> DM [arrowhead=empty, style=dashed];
+  Courier -> ADM [arrowhead=empty]; Post -> ADM [arrowhead=empty]; Pickup -> ADM [arrowhead=empty]; Locker -> ADM [arrowhead=empty];
+  Courier -> TR [arrowhead=empty, style=dashed]; Post -> TR [arrowhead=empty, style=dashed]; Locker -> TR [arrowhead=empty, style=dashed];
+  Flat -> CC [arrowhead=empty, style=dashed]; WD -> CC [arrowhead=empty, style=dashed]; Free -> CC [arrowhead=empty, style=dashed];
+  Free -> CC [arrowhead=odiamond, label=" fallback", constraint=false];
+  Service -> DM [arrowhead=vee, label=" залежність 1"]; Service -> CC [arrowhead=vee, label=" залежність 2"];
+  Service -> TR [arrowhead=vee, style=dotted, label=" якщо підтримує"];
+  Service -> Order [arrowhead=vee, style=dotted];
+  Main -> Service [arrowhead=vee, style=dashed, label=" new DeliveryService(...)"];
+}
