@@ -7,3 +7,7 @@
 2026-10-25T22:26:48.100 INFO --- [demo] [nio-8080-exec-3] com.example.demo.service.CameraService   : Camera info received: CameraInfoDto[id=123, device_type=camera, status=online, features=[motion_detection, night_vision, audio], 
 2026-10-25T22:27:17.712 INFO --- [demo] [nio-8080-exec-4] com.example.demo.service.CameraService   : Capturing snapshot
 2026-10-25T22:27:17.895 INFO --- [demo] [nio-8080-exec-4] com.example.demo.service.CameraService   : Snapshot received
+2026-10-25T22:27:51.077 INFO --- [demo] [nio-8080-exec-1] com.example.demo.service.CameraService   : Capturing snapshot
+2026-10-25T22:27:52.693 INFO --- [demo] [nio-8080-exec-1] com.example.demo.service.CameraService   : Snapshot received
+2026-10-25T22:28:12.078 INFO --- [demo] [nio-8080-exec-2] com.example.demo.service.CameraService   : Capturing snapshot
+2026-10-25T22:28:13.272 INFO --- [demo] [nio-8080-exec-2] com.example.demo.service.CameraService   : Snapshot received
