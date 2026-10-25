@@ -1,6 +1,7 @@
 package app;
 
 import delivery.method.CourierDelivery;
+import delivery.method.ParcelLockerDelivery;
 import delivery.method.PickupDelivery;
 import delivery.method.PostDelivery;
 import delivery.model.Order;
@@ -43,5 +44,9 @@ public class Main {
         out.println();
         out.println("=== Конфігурація 5: кур'єр без адреси ===");
         out.println(new DeliveryService(new CourierDelivery(), flatTariff).process(books));
+
+        out.println();
+        out.println("=== Конфігурація 6: НОВИЙ спосіб — поштомат (DeliveryService.java змінено на 0 рядків) ===");
+        out.println(new DeliveryService(new ParcelLockerDelivery("3417"), promoTariff).process(books));
     }
 }
