@@ -1,0 +1,8 @@
+$ git show --stat HEAD  (додавання різновиду Contractor)
+d4fa311 ЛР3: новий різновид Contractor — Payroll не змінено
+
+ docs/lr3/run.txt                                   | 15 +++++++++
+ lr3-payroll/src/main/java/app/Main.java            |  9 ++++++
+ lr3-payroll/src/main/java/staff/Contractor.java    | 37 ++++++++++++++++++++++
+ .../src/test/java/staff/EmployeeContractTest.java  |  4 ++-
+ 4 files changed, 64 insertions(+), 1 deletion(-)
