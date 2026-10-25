@@ -1,0 +1,16 @@
+[INFO] --------------------< com.example:pr1-maven-basics >--------------------
+[INFO] Building pr1-maven-basics 1.0.0
+[INFO] --- clean:3.5.0:clean (default-clean) @ pr1-maven-basics ---
+[INFO] Deleting ~/IdeaProjects/kpz-java/pr1-maven-basics/target
+[INFO] --- resources:3.5.0:resources (default-resources) @ pr1-maven-basics ---
+[INFO] skip non existing resourceDirectory ~/IdeaProjects/kpz-java/pr1-maven-basics/src/main/resources
+[INFO] --- compiler:3.16.0:compile (default-compile) @ pr1-maven-basics ---
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ pr1-maven-basics ---
+[INFO] skip non existing resourceDirectory ~/IdeaProjects/kpz-java/pr1-maven-basics/src/test/resources
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ pr1-maven-basics ---
+[INFO] --- surefire:3.6.0:test (default-test) @ pr1-maven-basics ---
+[INFO] --- jar:3.4.2:jar (default-jar) @ pr1-maven-basics ---
+[INFO] Building jar: ~/IdeaProjects/kpz-java/pr1-maven-basics/target/pr1-maven-basics.jar
+[INFO] --- dependency:3.8.1:copy-dependencies (copy-dependencies) @ pr1-maven-basics ---
+[INFO] BUILD SUCCESS
+[INFO] Total time:  1.244 s

@@ -1,0 +1,6 @@
+$ java -jar target/pr1-maven-basics.jar
+JVM: 21.0.12.1 (Homebrew)
+OS: Mac OS X 27.0.1 (aarch64)
+Reversed (Commons Lang): avaJ
+Capitalized (Commons Lang): Король єгор
+Привіт зі збірки!
