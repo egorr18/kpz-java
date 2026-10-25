@@ -1,0 +1,14 @@
+$ unzip -l target/converter.jar | grep -E "MANIFEST|StringUtils.class|com/example"
+META-INF/MANIFEST.MF
+com/example/
+com/example/Main.class
+com/example/SpeedUnit.class
+org/apache/commons/lang3/StringUtils.class
+
+$ unzip -p target/converter.jar META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+Created-By: Maven JAR Plugin 3.5.1
+Java-Version: 21
+Build-Jdk-Spec: 21
+Main-Class: com.example.Main
+

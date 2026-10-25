@@ -1,0 +1,10 @@
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s -- in com.example.SpeedUnitTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Building jar: ~/IdeaProjects/kpz-java/lr1-unit-converter/target/converter.jar
+[INFO] --- shade:3.6.0:shade (default) @ lr1-unit-converter ---
+[INFO] Including org.apache.commons:commons-lang3:jar:3.17.0 in the shaded jar.
+[WARNING] maven-shade-plugin has detected that some files are
+[WARNING] See https://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing ~/IdeaProjects/kpz-java/lr1-unit-converter/target/converter.jar with ~/IdeaProjects/kpz-java/lr1-unit-converter/target/lr1-unit-converter-1.0.0-shaded.jar
+[INFO] BUILD SUCCESS
